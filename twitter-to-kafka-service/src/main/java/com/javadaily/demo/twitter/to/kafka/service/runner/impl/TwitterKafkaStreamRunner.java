@@ -6,6 +6,7 @@ import javax.annotation.PreDestroy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.javadaily.demo.twitter.to.kafka.service.config.TwitterToKafkaServiceConfiguration;
@@ -18,6 +19,7 @@ import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 
 @Component
+@ConditionalOnProperty(name = "twitter-to-kafka-service.enable-mock-tweets", havingValue = "false", matchIfMissing = true )
 public class TwitterKafkaStreamRunner implements StreamRunner {
 
 	private final static Logger LOG = LoggerFactory.getLogger(TwitterKafkaStreamRunner.class); 
