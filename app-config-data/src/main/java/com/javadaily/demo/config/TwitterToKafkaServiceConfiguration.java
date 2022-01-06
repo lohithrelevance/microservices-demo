@@ -1,4 +1,4 @@
-package com.javadaily.demo.twitter.to.kafka.service.config;
+package com.javadaily.demo.config;
 
 import java.util.List;
 
